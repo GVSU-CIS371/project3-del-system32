@@ -3,6 +3,9 @@
     <Beverage :isIced="currentTemp === 'Cold'" />
     <ul>
       <li>
+        <label>
+          Temperature:
+        </label>
         <template v-for="temp in temps" :key="temp">
           <label>
             <input
@@ -52,7 +55,7 @@
       </li>
       <li>
         <label>
-          Base:
+          Base Beverage:
         </label>
         <template v-for="base in bases" :key="base">
           <label>
@@ -78,16 +81,21 @@ import Beverage from "./components/Beverage.vue";
 const temps = ref(["Hot", "Cold"]);
 const currentTemp = ref("Hot");
 
-//This portion is not grabbing the list of types of creamer, syrup, or bases
-//
-const creamers = ref("Creamer");
+
+import Creamer from "./components/Creamer.vue"
+
+const creamers = ref(["None", "Milk", "Cream", "Half & Half"]);
 const currentCreamer = ref("Half & Half");
 
-const syrups = ref("Syrup");
+import Syrup from "./components/Syrup.vue"
+
+const syrups = ref(["None", "Vanilla", "Caramel", "Hazelnut"]);
 const currentSyrup = ref("Vanilla");
 
-const bases = ref("Base");
-const currentBase = ref("");
+import Base from "./components/Base.vue"
+
+const bases = ref(["Coffee", "Green Tea", "Black Tea"]);
+const currentBase = ref("Coffee");
 </script>
 
 <style lang="scss">
