@@ -1,11 +1,24 @@
 <template>
   <div class="froth">
-    <div v-for=" in 5" class="foam"></div>
+    <div v-for=" in 5" class="foam" :style="{'background-color':creamerColor, 'display':visible}"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
+
+const creamerColor = computed(() => {
+  if (props.name != "None"){
+    return Creamers.find(i => i.name === props.name).color;
+  }
+})
+
+const visible = computed (() => {
+  if (props.name == "None"){
+    return "none";
+  }
+})
+
 type Prop = {
   name: string;
 };
@@ -13,6 +26,9 @@ type Creamer = {
   name: string;
   color: string;
 };
+
+
+
 const Creamers: Creamer[] = [
   {
     name: "Milk",

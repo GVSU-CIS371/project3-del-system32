@@ -1,5 +1,5 @@
 <template>
-  <div class="syrup"></div>
+  <div class="syrup" :style="{'background-color': syrupColor, 'display': visible}"></div>
 </template>
 
 <script setup lang="ts">
@@ -25,6 +25,18 @@ const Syrups: Syrup[] = [
     color: "#6B4423",
   },
 ];
+
+const syrupColor = computed(() => {
+  if (props.name != "None"){
+    return Syrups.find(i => i.name === props.name).color;
+  }
+})
+
+const visible = computed (() => {
+  if (props.name == "None"){
+    return "none";
+  }
+})
 
 const props = withDefaults(defineProps<Prop>(), {
   name: "Vanilla",
