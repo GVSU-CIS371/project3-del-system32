@@ -7,11 +7,14 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
+const props = defineProps<Prop>();
+
 const creamerColor = computed(() => {
-  if (props.name != "None"){
-    return Creamers.find(i => i.name === props.name).color;
+  if (props.name !== "None") {
+    const base = Creamers.find(i => i.name === props.name);
+    return base ? base.color : '';
   }
-})
+});
 
 const visible = computed (() => {
   if (props.name == "None"){
@@ -44,9 +47,6 @@ const Creamers: Creamer[] = [
   },
 ];
 
-const props = withDefaults(defineProps<Prop>(), {
-  name: "Milk",
-});
 </script>
 <style lang="scss" scoped>
 .froth {

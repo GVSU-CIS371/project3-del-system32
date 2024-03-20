@@ -26,11 +26,15 @@ const Syrups: Syrup[] = [
   },
 ];
 
+
+const props = defineProps<Prop>();
+
 const syrupColor = computed(() => {
-  if (props.name != "None"){
-    return Syrups.find(i => i.name === props.name).color;
+  if (props.name !== "None") {
+    const base = Syrups.find(i => i.name === props.name);
+    return base ? base.color : '';
   }
-})
+});
 
 const visible = computed (() => {
   if (props.name == "None"){
@@ -38,9 +42,6 @@ const visible = computed (() => {
   }
 })
 
-const props = withDefaults(defineProps<Prop>(), {
-  name: "Vanilla",
-});
 </script>
 <style lang="scss" scoped>
 .syrup {

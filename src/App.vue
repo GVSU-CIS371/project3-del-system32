@@ -82,17 +82,17 @@ const temps = ref(["Hot", "Cold"]);
 const currentTemp = ref("Hot");
 
 
-import Creamer from "./components/Creamer.vue"
+//import Creamer from "./components/Creamer.vue"
 
 const creamers = ref(["None", "Milk", "Cream", "Half & Half"]);
 const currentCreamer = ref("Half & Half");
 
-import Syrup from "./components/Syrup.vue"
+//import Syrup from "./components/Syrup.vue"
 
 const syrups = ref(["None", "Vanilla", "Caramel", "Hazelnut"]);
 const currentSyrup = ref("Vanilla");
 
-import Base from "./components/Base.vue"
+//import Base from "./components/Base.vue"
 
 const bases = ref(["Coffee", "Green Tea", "Black Tea"]);
 const currentBase = ref("Coffee");
